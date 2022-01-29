@@ -8,13 +8,16 @@ class CreateProductTabel extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *  
      * @return void
      */
     public function up()
     {
-        Schema::create('product_tabel', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }
