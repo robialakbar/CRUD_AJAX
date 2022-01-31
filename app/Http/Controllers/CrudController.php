@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CrudModel;
 
 class CrudController extends Controller
 {
@@ -23,7 +24,7 @@ class CrudController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +35,8 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data['name'] = $request->name;
+        CrudModel::insert($data);
     }
 
     /**

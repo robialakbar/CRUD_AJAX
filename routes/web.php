@@ -19,3 +19,5 @@ use App\Http\Controllers\CrudController;
 // });
 
 Route::get('/', [CrudController::class,'index']);
+Route::get('/create', [CrudController::class,'create']);
+Route::get('/store', [CrudController::class,'store']);

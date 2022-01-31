@@ -30,7 +30,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
+        <div id="page" class="p-2"> </div>
       </div>
       
     </div>
@@ -45,11 +45,30 @@
 
        
     });
-
+//Untuk Halaman Modal Create
     function create() {
-        $("#exampleModal").modal('show');
+        $.get("{{ url('create') }}", {}, function(data, status) {
+          $("#exampleModalLabel").html('Input Produk');
+          $("#page").html(data);
+          $("#exampleModal").modal('show');
+        
+        });
         }
 
+        // untuk proses create data
+        function store() {
+            var name = $("#name").val();
+            $.ajax({
+                type: "get",
+                url: "{{ url('store') }}",
+                data: "name=" + name,
+                success: function(data) {
+                    $(".btn-close").click();
+                   
+                }
+            });
+        }
+      
 
 </script>
 </body>
